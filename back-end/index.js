@@ -6,6 +6,7 @@ const path = require('path')
 const AllProducts = require('./routes/ProductRouter')
 const cors = require('cors');
 const connectCloudinary = require('./config/ConnectCloudinary')
+const AllOrders = require('./routes/OrderRouter')
 
 // Enable CORS
 app.use(cors());
@@ -27,6 +28,8 @@ app.use(express.static('public'))
 
 // Routes
 app.use('/api', AllProducts);
+app.use('/api', AllOrders);
+
 
 
 app.get('/', (req, res) => {

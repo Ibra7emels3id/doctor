@@ -80,10 +80,7 @@ const ProductSchema = new mongoose.Schema({
             {
                 date: String,
                 time: [
-                    {
-                        start: String,
-                        end: String,
-                    }
+                    
                 ],
             }
         ],
