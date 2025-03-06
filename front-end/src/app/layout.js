@@ -4,6 +4,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import {AuthProviderContext} from '../app/context/context';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { Toaster } from 'sonner';
 
 const outfit = Outfit({
     subsets: ['latin'],
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
                     <AuthProviderContext>
                         <Header />
                         {children}
+                        <Toaster />
                         <Footer />
                     </AuthProviderContext>
                 </body>

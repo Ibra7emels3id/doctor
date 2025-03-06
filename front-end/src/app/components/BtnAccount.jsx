@@ -1,19 +1,25 @@
 'use client'
-import { useClerk } from '@clerk/nextjs';
+import { useClerk, useUser } from '@clerk/nextjs';
 import React from 'react';
+import { useAuth } from '../context/context';
 
 const BtnAccount = () => {
-    const {openSignIn} = useClerk()
+    const { getOrders } = useAuth()
+    const { user } = useUser()
+    const { openSignIn } = useClerk()
     // Handle Sign in Cleck 
     const HandleSignIn = () => {
         openSignIn()
+            .then(() => {
+                getOrders(user.id)
+            })
     }
 
 
 
     return (
         <button
-        onClick={HandleSignIn}
+            onClick={HandleSignIn}
             type="button"
             className="bg-blue hover:bg-purple-600 px-4 py-2 rounded-full text-white text-[15px] font-semibold flex items-center justify-center gap-2"
         >

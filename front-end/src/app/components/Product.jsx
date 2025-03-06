@@ -15,7 +15,7 @@ const Product = () => {
                 <Link key={it._id} href={`/doctor-list/doctor-details/${it._id}`} className="box hover:-translate-y-3 transition-all duration-300 border border-[#0000ff3f] rounded-lg">
                     <div className="image bg-[#EAEFFF] flex items-center m-auto rounded-t-lg">
                         <Image
-                            src="/images/doc1.png"
+                            src={it.image}
                             alt="Doctor's Image"
                             objectFit="cover"
                             className="rounded-lg w-full"

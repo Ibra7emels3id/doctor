@@ -9,7 +9,7 @@ const Category = () => {
                 <p className='text-center text-gray font-normal'>Simply browse through our extensive list of trusted doctors, schedule your appointment hassle-free.</p>
             </div>
             <div className="cart mt-10 m-auto">
-                <div className="flex gap-3 m-auto">
+                <div className="flex flex-wrap justify-center gap-3 m-auto">
                     <div className="box hover:-mt-2 transition-all cursor-pointer duration-500 flex flex-col items-center ">
                         <Image 
                             src="/images/General_physician.svg"

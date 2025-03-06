@@ -9,8 +9,8 @@ const Products = () => {
                 <h1 className='text-4xl font-medium mb-4'>Top Doctors to Book</h1>
                 <p className='text-gray font-normal'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
-            <div className="flex w-full m-auto mt-10">
-                <div className="grid grid-cols-5 w-full gap-5">
+            <div className="flex w-full m-auto mt-10 px-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mx-10 w-full gap-5">
                     <Product />
                 </div>
             </div>
