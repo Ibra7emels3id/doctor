@@ -18,6 +18,8 @@ const ActionOrder = ({ post }) => {
     const Router = useRouter()
 
 
+    console.log(user?.firstName+' '+user?.lastName);
+
 
     // Handle Send Data Book an appointment
     const HandleSendDataBook = async () => {
@@ -51,7 +53,7 @@ const ActionOrder = ({ post }) => {
                 userId: user?.id,
                 username: user?.username,
                 image: user?.imageUrl,
-                name: user?.fullName || 'John',
+                name: user?.fullName || user?.firstName+' '+user?.lastName ,
                 email: user?.primaryEmailAddress?.emailAddress,
                 doctors: [
                     {
