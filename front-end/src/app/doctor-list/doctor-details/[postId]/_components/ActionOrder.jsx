@@ -8,7 +8,7 @@ import { useAuth } from '../../../../context/context';
 
 const ActionOrder = ({ post }) => {
     const { user } = useUser();
-    const {getOrders} = useAuth()
+    const { getOrders } = useAuth()
     const appointments = post.appointments;
     const [IndexBtn, setIndexBtn] = useState(null)
     const [formData, setFormData] = useState([]);
@@ -18,7 +18,7 @@ const ActionOrder = ({ post }) => {
     const Router = useRouter()
 
 
-    console.log(user?.firstName+' '+user?.lastName);
+    console.log(user?.fullName);
 
 
     // Handle Send Data Book an appointment
@@ -47,31 +47,33 @@ const ActionOrder = ({ post }) => {
 
     // Handle Change Input Data
     useEffect(() => {
-        setFormData({
-            ...formData,
-            user: {
-                userId: user?.id,
-                username: user?.username,
-                image: user?.imageUrl,
-                name: user?.fullName || user?.firstName+' '+user?.lastName ,
-                email: user?.primaryEmailAddress?.emailAddress,
-                doctors: [
-                    {
-                        specialization: post.specialization,
-                        name: post?.name,
-                        image: post?.image,
-                        doctor_id: post._id,
-                        duration: '30 minutes',
-                        status: 'pending',
-                        price: post.price,
-                        date: appointments[IndexBtn]?.date,
-                        time: time,
-                        address: post.address1,
-                    }
-                ]
-            }
-        });
-    }, [user , user?.fullName, time]);
+        if (user && user.id) {
+            setFormData({
+                ...formData,
+                user: {
+                    userId: user?.id,
+                    username: user?.username,
+                    image: user?.imageUrl,
+                    name: user?.fullName || user?.firstName + ' ' + user?.lastName,
+                    email: user?.primaryEmailAddress?.emailAddress,
+                    doctors: [
+                        {
+                            specialization: post.specialization,
+                            name: post?.name,
+                            image: post?.image,
+                            doctor_id: post._id,
+                            duration: '30 minutes',
+                            status: 'pending',
+                            price: post.price,
+                            date: appointments[IndexBtn]?.date,
+                            time: time,
+                            address: post.address1,
+                        }
+                    ]
+                }
+            });
+        }
+    }, [user, user?.fullName, time, user?.id]);
 
 
     return (
