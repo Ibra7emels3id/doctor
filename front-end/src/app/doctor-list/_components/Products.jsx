@@ -4,9 +4,10 @@ import React from 'react';
 import Image from 'next/image';
 import { useAuth } from '../../context/context';
 
-const Products = () => {
+const Products = ({category}) => {
     const { doctor } = useAuth()
-    console.log(doctor);
+
+    // Handle Filter
 
 
     return (
