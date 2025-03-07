@@ -5,6 +5,7 @@ import Image from 'next/image';
 import React, { memo, useCallback, useEffect, useState } from 'react';
 
 const FormDataDoc = () => {
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const [formData, setFormDate] = useState({});
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
@@ -13,26 +14,21 @@ const FormDataDoc = () => {
     const [toast, setToast] = useState(null)
     const [appointments, setAppointments] = useState([]);
     const [date, setDate] = useState('');
-    const [start, setStart] = useState("");
-    const [end, setEnd] = useState("");
+    const [time, setTime] = useState('');
+    const [arrTime, setArrTime] = useState([]);
 
     // Handle Add Appointments
     const addAppointment = () => {
-        if (!start || !end || !date) {
+        if (!arrTime || !date) {
             alert("Please Enter Time Start Or End");
             return;
         }
-
         const newAppointment = {
             date,
-            time: [{
-                start,
-                end
-            }],
+            time: arrTime,
         };
         setAppointments([...appointments, newAppointment]);
-        setStart("");
-        setEnd("");
+        setArrTime([]);
         setDate("");
     };
 
@@ -48,7 +44,7 @@ const FormDataDoc = () => {
     // Handle Send Data To Server
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!formData.name ||!formData.description ||!formData.price ||!formData.image) {
+        if (!formData.name || !formData.description || !formData.price || !formData.image) {
             alert("Please Fill All Fields");
             return;
         }
@@ -146,17 +142,12 @@ const FormDataDoc = () => {
                         <label className="block text-sm font-medium text-gray">Specialization</label>
                         <select onChange={handleChange} className=' w-full outline-none px-2 h-9 mt-1' name="specialization" id="specialization">
                             <option hidden>Select Specialization</option>
-                            <option value="Cardiology">Cardiology</option>
-                            <option value="Dermatology">Dermatology</option>
-                            <option value="Gastroenterology">Gastroenterology</option>
-                            <option value="Neurology">Neurology</option>
-                            <option value="Orthopedics">Orthopedics</option>
-                            <option value="Pediatrics">Pediatrics</option>
-                            <option value="Pulmonology">Pulmonology</option>
-                            <option value="Rheumatology">Rheumatology</option>
-                            <option value="Urology">Urology</option>
-                            <option value="Allergology">Allergology</option>
-                            <option value="Anesthesiology">Anesthesiology</option>
+                            <option value="General physician">General physician</option>
+                            <option value="Gynecologist">Gynecologist</option>
+                            <option value="Dermatologist">Dermatologist</option>
+                            <option value="Pediatricians">Pediatricians</option>
+                            <option value="Neurologist">Neurologist</option>
+                            <option value="Gastroenterologist">Gastroenterologist</option>
                         </select>
                     </div>
                     <div className="name w-full">
@@ -200,19 +191,29 @@ const FormDataDoc = () => {
                     <div className="flex gap-3">
                         <div className="w-full">
                             <label className="block text-sm font-medium text-gray">Date</label>
-                            <input className='py-2 px-2 mr-2 w-full rounded' value={date} type="date" name="date" id="date" onChange={(e) => {
-                                setDate(e.target.value)
-                            }} />
+                            <select onChange={(e) => {
+                                const selectedTime = e.target.value;
+                                setDate(selectedTime)
+                            }} className='py-2 px-2 mr-2 w-full rounded'
+                                value={date}
+                                name="date"
+                                id="date"
+                            >
+                                <option hidden>select Date </option>
+                                {daysOfWeek.map((day, index) => (
+                                    <option key={index} value={index + 1 + ' ' + day.slice(0, 3)}>{index + 1 + ' ' + day.slice(0, 3)}</option>
+                                ))}
+                            </select>
                         </div>
                         <div className='w-full'>
                             <label className="block text-sm font-medium text-gray">Time Start</label>
                             <select className='py-2 px-2 mr-2 w-full rounded'
-                                value={start}
+                                value={time}
                                 name="appointments"
                                 id="appointments"
                                 onChange={(e) => {
                                     const selectedTime = e.target.value;
-                                    setStart(selectedTime)
+                                    setTime(selectedTime)
                                 }}
                             >
                                 <option hidden>select time 12:00AM</option>
@@ -223,24 +224,12 @@ const FormDataDoc = () => {
                                 })}
                             </select>
                         </div>
-                        <div className='w-full'>
-                            <label className="block text-sm font-medium text-gray">Time End</label>
-                            <select className='py-2 px-2 mr-2 w-full rounded'
-                                value={end}
-                                name="appointments"
-                                id="appointments"
-                                onChange={(e) => {
-                                    const selectedTime = e.target.value;
-                                    setEnd(selectedTime)
-                                }}
-                            >
-                                <option hidden>select time 12:00AM</option>
-                                {Array.from({ length: 24 }).map((_, i) => {
-                                    const hour = i % 12 || 12;
-                                    const period = i < 12 ? "AM" : "PM";
-                                    return <option key={i} value={`${hour}:00${period}`}>{`${hour}:00${period}`}</option>;
-                                })}
-                            </select>
+                        <div className="flex flex-col">
+                            <label className="block text-sm font-medium text-gray">Add Time</label>
+                            <button type='button' className='bg-blue py-2 px-2 text-white rounded' onClick={() => {
+                                setArrTime([...arrTime, time])
+                                setTime('')
+                            }}>Submit</button>
                         </div>
                     </div>
                     <ul className=' mt-2 flex flex-wrap gap-3'>
@@ -250,7 +239,7 @@ const FormDataDoc = () => {
                                 <ul>
                                     {appointment.time.map((t, i) => (
                                         <li key={i}>
-                                            {t.start} - {t.end}
+                                            {t}
                                         </li>
                                     ))}
                                 </ul>

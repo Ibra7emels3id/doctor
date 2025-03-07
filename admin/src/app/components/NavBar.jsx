@@ -72,7 +72,7 @@ const NavBar = () => {
                         </Link>
                     </li>
                     <li className='py-1'>
-                        <Link href='/' className='flex items-center gap-2 border-b text-blue hover:bg-slate-200 transition-all duration-300 py-4 mx-2 px-4 text-md font-medium text-gray-700 hover:text-gray-900'>
+                        <Link href='/reservations' className='flex items-center gap-2 border-b text-blue hover:bg-slate-200 transition-all duration-300 py-4 mx-2 px-4 text-md font-medium text-gray-700 hover:text-gray-900'>
                             <svg
                                 className='w-6'
                                 version="1.1"
