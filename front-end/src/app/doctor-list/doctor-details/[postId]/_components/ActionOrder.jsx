@@ -19,7 +19,6 @@ const ActionOrder = ({ post }) => {
 
 
 
-
     // Handle Send Data Book an appointment
     const HandleSendDataBook = async () => {
         // Send appointment data to your server or API here
@@ -52,13 +51,13 @@ const ActionOrder = ({ post }) => {
                 userId: user?.id,
                 username: user?.username,
                 image: user?.imageUrl,
-                name: user?.fullName,
+                name: user?.fullName || 'John',
                 email: user?.primaryEmailAddress?.emailAddress,
                 doctors: [
                     {
                         specialization: post.specialization,
-                        name: post.name,
-                        image: post.image,
+                        name: post?.name,
+                        image: post?.image,
                         doctor_id: post._id,
                         duration: '30 minutes',
                         status: 'pending',
@@ -70,7 +69,7 @@ const ActionOrder = ({ post }) => {
                 ]
             }
         });
-    }, [user, time]);
+    }, [user , user?.fullName, time]);
 
 
     return (

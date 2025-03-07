@@ -10,8 +10,6 @@ const Page = () => {
         setCategory(category)
     }
 
-    console.log(category);
-
 
     return (
         <div className='min-h-screen'>
