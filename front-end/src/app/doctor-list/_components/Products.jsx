@@ -6,15 +6,19 @@ import { useAuth } from '../../context/context';
 
 const Products = ({category}) => {
     const { doctor } = useAuth()
+    // console.log(category);
 
-    // Handle Filter
+    // Handle Filter cATEGORY
+    const filteredProducts = category === 'All' ? doctor : doctor.filter((product) => product.specialization === category);
+
+    // console.log(filteredProducts);
 
 
     return (
-        doctor.slice(0, 8).map((it) => {
+        filteredProducts.slice(0, 8).map((it) => {
             return (
                 <>
-                    <Link key={it._id} href={`/doctor-list/doctor-details/${it._id}`} className="box hover:-translate-y-3 transition-all max-h-[360px] duration-300 border border-[#0000ff3f] rounded-lg">
+                    <Link key={it._id} href={`/doctor-list/doctor-details/${it._id}`} className="box hover:-translate-y-3 transition-all  duration-300 border border-[#0000ff3f] rounded-lg">
                         <div className="image bg-[#EAEFFF] flex items-center m-auto rounded-t-lg">
                             <Image
                                 src={it.image}

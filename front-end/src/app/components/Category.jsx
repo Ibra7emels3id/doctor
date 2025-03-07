@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const Category = () => {
@@ -10,7 +11,7 @@ const Category = () => {
             </div>
             <div className="cart mt-10 m-auto">
                 <div className="flex flex-wrap justify-center gap-3 m-auto">
-                    <div className="box hover:-mt-2 transition-all cursor-pointer duration-500 flex flex-col items-center ">
+                    <Link href={'/category/General physician'} className="box hover:-mt-2 transition-all cursor-pointer duration-500 flex flex-col items-center ">
                         <Image 
                             src="/images/General_physician.svg"
                             className='w-[130px] h-[130px]'
@@ -19,8 +20,8 @@ const Category = () => {
                             height={300}
                         />
                         <h3 className='mt-3 text-lg font-normal'>General physician</h3>
-                    </div>
-                    <div className="box hover:-mt-2 transition-all cursor-pointer duration-500 flex flex-col items-center">
+                    </Link>
+                    <Link href={'/category/Gynecologist'} className="box hover:-mt-2 transition-all cursor-pointer duration-500 flex flex-col items-center">
                         <Image 
                             src="/images/Gynecologist.svg"
                             className='w-[130px] h-[130px]'
@@ -29,8 +30,8 @@ const Category = () => {
                             height={300}
                         />
                         <h3 className='mt-3 text-lg font-normal'>Gynecologist</h3>
-                    </div>
-                    <div className="box hover:-mt-2 transition-all cursor-pointer duration-500 flex flex-col items-center">
+                    </Link>
+                    <Link href={'/category/Dermatologist'} className="box hover:-mt-2 transition-all cursor-pointer duration-500 flex flex-col items-center">
                         <Image 
                             src="/images/Dermatologist.svg"
                             className='w-[130px] h-[130px]'
@@ -39,8 +40,8 @@ const Category = () => {
                             height={300}
                         />
                         <h3 className='mt-3 text-lg font-normal'>Dermatologist</h3>
-                    </div>
-                    <div className="box hover:-mt-2 transition-all cursor-pointer duration-500 flex flex-col items-center">
+                    </Link>
+                    <Link href={'/category/Pediatricians'} className="box hover:-mt-2 transition-all cursor-pointer duration-500 flex flex-col items-center">
                         <Image 
                             src="/images/Pediatricians.svg"
                             className='w-[130px] h-[130px]'
@@ -49,8 +50,8 @@ const Category = () => {
                             height={300}
                         />
                         <h3 className='mt-3 text-lg font-normal'>Pediatricians</h3>
-                    </div>
-                    <div className="box hover:-mt-2 transition-all cursor-pointer duration-500 flex flex-col items-center">
+                    </Link>
+                    <Link href={'/category/Neurologist'} className="box hover:-mt-2 transition-all cursor-pointer duration-500 flex flex-col items-center">
                         <Image 
                             src="/images/Neurologist.svg"
                             className='w-[130px] h-[130px]'
@@ -59,8 +60,8 @@ const Category = () => {
                             height={300}
                         />
                         <h3 className='mt-3 text-lg font-normal'>Neurologist</h3>
-                    </div>
-                    <div className="box hover:-mt-2 transition-all duration-500 cursor-pointer flex flex-col items-center">
+                    </Link>
+                    <Link href={'/category/Gastroenterologist'} className="box hover:-mt-2 transition-all duration-500 cursor-pointer flex flex-col items-center">
                         <Image 
                             src="/images/Gastroenterologist.svg"
                             className='w-[130px] h-[130px]'
@@ -69,7 +70,7 @@ const Category = () => {
                             height={300}
                         />
                         <h3 className='mt-3 text-lg font-normal'>Gastroenterologist</h3>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -18,22 +18,6 @@ const Page = () => {
                     </p>
                 </div>
                 <div className="w-full max-w-sm">
-                    <div className="p-4">
-                        {/* <div className="grid gap-2 text-sm">
-                            <div className="flex justify-between">
-                                <div>Order number</div>
-                                <div className="ml-2 font-medium">#{FilterData?.paymentId}</div>
-                            </div>
-                            <div className="flex justify-between">
-                                <div>Date</div>
-                                <div className="ml-2 font-medium">{FilterData?.createdAt}</div>
-                            </div>
-                            <div className="flex justify-between">
-                                <div>Total</div>
-                                <div className="ml-2 font-medium">${FilterData?.subTotal || '0000'}</div>
-                            </div>
-                        </div> */}
-                    </div>
                     <div className="flex gap-3 p-3 text-center">
                         <Link href="/" className="w-full bg-yellow h-10 flex text-blue border-blue border bg-white hover:bg-blue hover:text-white transition-all duration-200 py-3 justify-center" style={{ height: "inherit" }} prefetch={false}>
                             Home

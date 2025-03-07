@@ -19,12 +19,12 @@ const Footer = () => {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean gravida,
                     mi eu pulvinar cursus, sem elit interdum mauris dipiscing elit. Aenean
                     gravida, mi eu pulvinar cursus.{" "}
-                    <a
-                        href="javascript:void(0)"
+                    <Link
+                        href="/"
                         className="text-sm font-semibold text-blue-500"
                     >
                         Read more...
-                    </a>
+                    </Link>
                 </p>
                 <ul className="flex flex-wrap justify-center gap-6 mt-8">
                     <li>
@@ -150,10 +150,10 @@ const Footer = () => {
                             />
                         </svg>
                     </div>
-                    <a href="javascript:void(0)" className="text-gray-300 text-sm ml-3">
+                    <Link href="/" className="text-gray-300 text-sm ml-3">
                         <small className="block">Tel</small>
                         <strong>180-548-2588</strong>
-                    </a>
+                    </Link>
                 </li>
                 <li className="flex items-center">
                     <div className="bg-gray-900 h-10 w-10 rounded-full flex items-center justify-center shrink-0">
@@ -170,10 +170,10 @@ const Footer = () => {
                             />
                         </svg>
                     </div>
-                    <a href="javascript:void(0)" className="text-gray-300 text-sm ml-3">
+                    <Link href="/" className="text-gray-300 text-sm ml-3">
                         <small className="block">Mail</small>
-                        <strong>info@example.com</strong>
-                    </a>
+                        <strong>info@admin.com</strong>
+                    </Link>
                 </li>
                 <li className="flex items-center">
                     <div className="bg-gray-900 h-10 w-10 rounded-full flex items-center justify-center shrink-0">
@@ -194,10 +194,10 @@ const Footer = () => {
                             />
                         </svg>
                     </div>
-                    <a href="javascript:void(0)" className="text-gray-300 text-sm ml-3">
+                    <Link href="/" className="text-gray-300 text-sm ml-3">
                         <small className="block">Address</small>
                         <strong>123 Main Street City, Country</strong>
-                    </a>
+                    </Link>
                 </li>
                 <li className="flex items-center">
                     <div className="bg-gray-900 h-10 w-10 rounded-full flex items-center justify-center shrink-0">
@@ -214,10 +214,10 @@ const Footer = () => {
                             />
                         </svg>
                     </div>
-                    <a href="javascript:void(0)" className="text-gray-300 text-sm ml-3">
+                    <Link href="/" className="text-gray-300 text-sm ml-3">
                         <small className="block">Fax</small>
                         <strong>+1-548-2588</strong>
-                    </a>
+                    </Link>
                 </li>
             </ul>
             <hr className="my-10 border-gray-500" />
@@ -249,7 +249,7 @@ const Footer = () => {
                     </li>
                 </ul>
                 <p className="text-sm text-gray-300 md:ml-auto">
-                    © ReadymadeUI. All rights reserved.
+                    © Prescripto. All rights reserved.
                 </p>
             </div>
         </footer>

@@ -65,7 +65,7 @@ const CheckoutForm = () => {
             toast.success(res.data.message)
             localStorage.removeItem('payment-data');
             getOrders(user.id)
-            Router.push('/orders/success')
+            Router.replace(`/orders/success/${res.data.clientSecret}`)
         } else {
             alert("Payment failed: " + data.message);
         }
