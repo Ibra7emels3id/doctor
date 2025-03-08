@@ -6,7 +6,6 @@ import Image from 'next/image';
 
 const Product = () => {
     const { doctor } = useAuth()
-    console.log(doctor);
 
 
     return (

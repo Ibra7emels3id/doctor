@@ -5,6 +5,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import Cart from './Cart'
+import BtnNavBar from './BtnNavBar';
 
 const Header = async () => {
     const user = await currentUser()
@@ -67,7 +68,7 @@ const Header = async () => {
                                 href="/doctor-list"
                                 className="hover:text-[#007bff] text-gray-600 font-bold block text-base"
                             >
-                                ALL DOCTORS
+                                ALL Doctors
                             </Link>
                         </li>
                         <li className="max-lg:border-b max-lg:py-3 px-3">
@@ -95,20 +96,7 @@ const Header = async () => {
                             <UserButton />
                         </>
                         : <BtnAccount />}
-                    <button id="toggleOpen" className="lg:hidden">
-                        <svg
-                            className="w-7 h-7"
-                            fill="#000"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                fillRule="evenodd"
-                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                clipRule="evenodd"
-                            />
-                        </svg>
-                    </button>
+                    <BtnNavBar/>
                 </div>
             </div>
         </header>
