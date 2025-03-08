@@ -43,7 +43,7 @@ const Page = () => {
                         </ul>
                     </div>
                     <div className="flex max-sm:mt-4 w-full">
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full gap-5">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full max-sm:px-10 gap-5">
                             <Products category={category} />
                         </div>
                     </div>
