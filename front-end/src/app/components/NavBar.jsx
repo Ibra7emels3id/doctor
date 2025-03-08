@@ -18,7 +18,7 @@ const NavBar = ({ showNav , HandleShowNavBar }) => {
     }, [showNav])
 
     return (
-        <nav className={` ${showNav ? 'left-[-16px] opacity-[1]' : 'left-[-500px] opacity-0'} bg-white w-[250px] fixed left-[-50%] opacity-0 transition-all duration-500  top-0 h-screen border-r border-blue`}>
+        <nav className={` ${showNav ? 'left-[-16px] opacity-[1]' : 'left-[-500px] opacity-0'} bg-white w-[250px] fixed opacity-0 transition-all duration-500  top-0 h-screen border-r border-blue`}>
             <div className="logo mt-8 mb-5 mx-2">
                 <Link href="/" className="">
                     <Image
